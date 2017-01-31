@@ -19,3 +19,25 @@ function createUser(req, res) {
     dob: req.body.dob
   });
 }
+
+function loginRedirect(req, res, next) { //if user is already logged inn - function will send json message and will redirect user
+  if (req.user) return res.status(401).json(
+    { status: 'You are already logged in' }
+  );
+
+  return next(); //calling next function after invokation
+}
+
+
+function loginRequired(req, res, next) {
+  if (!req.user) res.redirect('/auth/login');
+
+  return next();
+}
+
+module.exports = {
+  comparePass,
+  loginRedirect,
+  loginRequired,
+  createUser
+}
