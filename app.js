@@ -44,8 +44,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', index);
-app.use('/users', users);
-
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
 
