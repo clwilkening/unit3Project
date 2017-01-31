@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit <%= director.name %></title>
+</head>
+<body>
+<form action="<%= '/directors/' + director.id + '?_method=PUT' %>" method='POST'>
+  <label name='name'>Name:
+    <input value="<%= director.name %>" type='text' name='name' />
+  </label>
+  <input type='submit' />
+</form>
+
+
+</body>
+</html>
