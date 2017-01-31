@@ -6,17 +6,15 @@
   </head>
   <body>
     <h1>Edit movie: <%= movie.title %></h1>
-    <form action="" method="PUT">
+    <form action="<%= '/movies/' + movie.id + '?_method=PUT' %>" method="POST">
       <label>
         Title:
-          <input name="" placeholder=' <%= movie.title %>'>
+          <input value="<%= movie.title %>"" name="title" placeholder=' <%= movie.title %>'>
       </label>
       <label>
         Synopsis:
-          <textarea name="" placeholder= '<%= movie.synopsis %>'></textarea>
+          <textarea value="<%= movie.synopsis %>" name="synopsis" placeholder= '<%= movie.synopsis %>'></textarea>
       </label>
-      <label></label>
-      <label></label>
       <button type='submit'>submit</button>
   </body>
 </html>

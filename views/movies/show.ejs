@@ -8,6 +8,9 @@
     <h1><%= movie.title %></h1>
     <p><%= movie.synopsis %></p>
     <a href='<%= `/movies/${movie.id}/edit` %> '><button>Edit</button></a>
-    <button>Delete</button>
+    <form action='<%= `/movies/${movie.id}?_method=DELETE` %>' method='POST'>
+        <button type="submit">Delete</button>
+    </form>
+    <a href="/movies"><button>Back</button></a>
   </body>
 </html>

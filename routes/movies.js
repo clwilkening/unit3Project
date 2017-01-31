@@ -45,4 +45,21 @@ router.put('/:id', function(req, res, next) {
   });
 });
 
+router.post('/', function(req, res, next) {
+  models.Movie.create({
+    title: req.body.title,
+    synopsis: req.body.synopsis
+  }).then(function() {
+    res.redirect('/movies');
+  });
+});
+
+router.delete('/:id', function(req,res,next) {
+  models.Movie.destroy({
+    where: {id: req.params.id}
+  }).then(function(movie) {
+    res.redirect('/movies');
+  });
+});
+
 module.exports = router;
