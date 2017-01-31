@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> <%= title %> </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <a href="/movies/new"><button>Add a Movie</button></a>
+    <% movies.forEach(function(movie) { %>
+      <div>
+        <span><a href="<%= '/movies/' + movie.id %>"><%= movie.title %></a></span>
+      </div>
+    <% }) %>
+  </body>
+</html>
