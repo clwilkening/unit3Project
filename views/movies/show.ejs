@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> <%= movie.title %> </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= movie.title %></h1>
+    <p><%= movie.synopsis %></p>
+    <a href='<%= `/movies/${movie.id}/edit` %> '><button>Edit</button></a>
+    <form action='<%= `/movies/${movie.id}?_method=DELETE` %>' method='POST'>
+        <button type="submit">Delete</button>
+    </form>
+    <a href="/movies"><button>Back</button></a>
+  </body>
+</html>

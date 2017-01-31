@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> <%= title %> </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Add a New Movie</h1>
+    <form action="/movies" method="POST">
+      <label>
+        Title:
+          <input name="title" placeholder="What's the title?">
+      </label>
+      <label>
+        Synopsis:
+          <textarea name="synopsis" placeholder='What is the synopsis?'></textarea>
+      </label>
+      <button type='submit'>submit</button>
+    </form>
+  </body>
+</html>

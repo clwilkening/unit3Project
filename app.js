@@ -5,6 +5,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 require('dotenv').config();
+
+var methodOverride = require('method-override');
+
+var index = require('./routes/index');
+var users = require('./routes/users');
+var movies = require('./routes/movies'); //cw
+
 var passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcryptjs');
@@ -16,6 +23,7 @@ const session = require('express-session');
 const authRoutes = require('./routes/auth.js');
 const userRoutes = require('./routes/user.js');
 
+
 var app = express();
 app.use(methodOverride('_method'));
 
@@ -25,6 +33,7 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(methodOverride('_method'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -47,10 +56,15 @@ app.use(passport.session());
 
 app.use('/', index);
 app.use('/users', users);
+
+//use movies route - cw
+app.use('/movies', movies);
+
 app.use('/directors', directors);
 
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
+
 
 
 // catch 404 and forward to error handler
