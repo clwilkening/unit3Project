@@ -9,14 +9,13 @@ require('dotenv').config();
 var methodOverride = require('method-override');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/user');
 var movies = require('./routes/movies'); //cw
 
 var passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcryptjs');
 var index = require('./routes/index');
-var users = require('./routes/users');
 var directors = require('./routes/directors');
 var methodOverride = require('method-override');
 const session = require('express-session');
