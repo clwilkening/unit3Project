@@ -4,18 +4,19 @@
    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
-<% include partials/head.ejs %> <!--- using head.ejs page from partials -->
+  <% include partials/head.ejs %> <!--- using head.ejs page from partials -->
   <body>
     <% include partials/header.ejs %> <!--- using header.ejs page from partials -->
     <main>
 
-
+<div class="container">
   <div class="collection">
     <a href="/user" class="collection-item center">View Profile</a>
     <a href="/auth/register" class="collection-item center">Register</a>
     <a href="/auth/login" class="collection-item center">Log In</a>
     <a href="/auth/logout" class="collection-item center">Log Out</a>
   </div>
+</div>
 
     </main>
     <% include partials/footer.ejs %> <!--- using footer.ejs page from partials -->
