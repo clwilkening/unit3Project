@@ -10,6 +10,9 @@ const LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcryptjs');
 var index = require('./routes/index');
 var users = require('./routes/users');
+const session = require('express-session');
+const authRoutes = require('./routes/auth.js');
+const userRoutes = require('./routes/user.js');
 
 
 var app = express();
@@ -32,8 +35,19 @@ app.use(require('node-sass-middleware')({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', index);
 app.use('/users', users);
+
+app.use('/auth', authRoutes);
+app.use('/user', userRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
