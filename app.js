@@ -5,13 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 require('dotenv').config();
-
 var methodOverride = require('method-override');
-
 var index = require('./routes/index');
-
 var movies = require('./routes/movies'); //cw
-
 var passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcryptjs');
