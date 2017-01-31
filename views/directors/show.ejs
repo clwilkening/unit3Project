@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= director.name %></title>
+</head>
+<body>
+  <div>
+    <span><%= director.name %></span>
+    <form action="<%= '/directors/' + director.id + '?_method=DELETE' %>" method='POST'>
+      <button>X</button>
+    </form>
+    <a href="<%= '/directors/'+director.id+'/edit' %>">edit</a>
+    <a href='/directors'>Back</a>
+  </div>
+</body>
+</html>
