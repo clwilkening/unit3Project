@@ -9,7 +9,7 @@ require('dotenv').config();
 var methodOverride = require('method-override');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+
 var movies = require('./routes/movies'); //cw
 
 var passport = require('passport');
