@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> <%= title %> </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Edit movie: <%= movie.title %></h1>
+    <form action="<%= '/movies/' + movie.id + '?_method=PUT' %>" method="POST">
+      <label>
+        Title:
+          <input value="<%= movie.title %>"" name="title" placeholder=' <%= movie.title %>'>
+      </label>
+      <label>
+        Synopsis:
+          <textarea value="<%= movie.synopsis %>" name="synopsis" placeholder= '<%= movie.synopsis %>'></textarea>
+      </label>
+      <button type='submit'>submit</button>
+  </body>
+</html>
