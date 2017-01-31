@@ -2,15 +2,27 @@
 <html>
   <head>
     <title> <%= movie.title %> </title>
+    <% include ../partials/head.ejs %>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
-    <h1><%= movie.title %></h1>
-    <p><%= movie.synopsis %></p>
-    <a href='<%= `/movies/${movie.id}/edit` %> '><button>Edit</button></a>
-    <form action='<%= `/movies/${movie.id}?_method=DELETE` %>' method='POST'>
-        <button type="submit">Delete</button>
-    </form>
-    <a href="/movies"><button>Back</button></a>
+
+<div class="row">
+        <div class="col s10 offset-s1">
+          <div class="card blue-grey lighten-1">
+            <div class="card-content white-text">
+              <span class="card-title"><h3><%= movie.title %></h3></span>
+              <p><%= movie.synopsis %></p>
+            </div>
+            <div class="card-action">
+            <div class="row">
+              <a href='<%= `/movies/${movie.id}/edit` %> '><button class="btn">Edit</button></a>
+              <form action='<%= `/movies/${movie.id}?_method=DELETE` %>' method='POST'>
+                <button class="btn" type="submit">Delete</button>
+              </form>
+              <a href="/movies"><button class="btn">Back</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
   </body>
 </html>
