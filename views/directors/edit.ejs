@@ -3,14 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>Edit <%= director.name %></title>
+  <% include ../partials/head.ejs %>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-<form action="<%= '/directors/' + director.id + '?_method=PUT' %>" method='POST'>
-  <label name='name'>Name:
-    <input value="<%= director.name %>" type='text' name='name' />
-  </label>
-  <input type='submit' />
-</form>
+
+<div class="row ">
+  <h2 class="col s10 offset-s1">Edit <%= director.name %></h2>
+</div>
+  <div class="row">
+    <form class="col s12" action="<%= '/directors/' + director.id + '?_method=PUT' %>" method="POST">
+      <div class="row">
+        <div class="col s12">
+          <label>Name:</label>
+          <input value="<%= director.name %>" name="name" placeholder=' <%= director.name %>' />
+        </div>
+      </div>
+        <button class="btn" type='submit'>submit</button>
+    </form>
+  </div>
 
 
 </body>
