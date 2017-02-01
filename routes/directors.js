@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../db/models/index');
+const authHelpers = require('../auth/auth-helpers');
 
-router.get('/', function(req, res, next) {
+router.get('/', authHelpers.loginRequired, (req, res, next)=> {
+  if (req.user)
   models.Director.findAll({}).then(function(directors) {
     res.render('directors/index', {
       title: 'directors',

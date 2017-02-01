@@ -15,6 +15,8 @@ function loginRedirect(req, res, next) {
 }
 
 
+
+
 router.post('/register', (req, res, next)  => {
   authHelpers.createUser(req, res)
   .then((user) => {

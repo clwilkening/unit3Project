@@ -1,15 +1,23 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../db/models/index');
+const authHelpers = require('../auth/auth-helpers');
 
 /* GET movies listing. */
-router.get('/', function(req, res, next) {
+router.get('/', authHelpers.loginRequired, (req, res, next) => {
+    if (req.user)
   models.Movie.findAll({}).then(function(movies) {
   res.render('movies/index', {
     title: 'Movies',
     movies: movies
     });
   });
+});
+
+
+
+router.get('/', authHelpers.loginRedirect, (req, res)=> {
+  res.render('auth/login');
 });
 
 router.get('/new', function(req, res, next) {
