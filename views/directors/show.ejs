@@ -15,11 +15,12 @@
             </div>
             <div class="card-action">
             <div class="row">
-              <a href='<%= `/directors/${director.id}/edit` %> '><button class="btn">Edit</button></a>
-              <form action='<%= `/directors/${director.id}?_method=DELETE` %>' method='POST'>
-                <button class="btn" type="submit">X</button>
+              <a class="col s2 offset-s2" href='<%= `/directors/${director.id}/edit` %> '><button class="btn">Edit</button></a>
+              <form class="col s2" action='<%= `/directors/${director.id}?_method=DELETE` %>' method='POST'>
+                <button class="btn" type="submit">Delete</button>
               </form>
-              <a href="/directors"><button class="btn">Back</button></a>
+              <a class="col s2" href="/directors"><button class="btn">Back</button></a>
+              <a class="col s2" href="/user"><button class="btn">Home</button></a>
             </div>
           </div>
         </div>
