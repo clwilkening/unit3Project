@@ -3,15 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <title>New Director</title>
+  <% include ../partials/head.ejs %>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
 
-<form method='POST' action='/directors'>
-  <label name='name'>Name:
-    <input type='text' name='name' />
-  </label>
-  <input type='submit' />
-</form>
+<div class="row">
+  <h2 class="col s10 offset-s1">Add a New Director</h2>
+</div>
+  <div class="row">
+    <form class="col s12" action="/directors" method="POST">
+      <div class="col s12">
+        <label>Name:</label>
+        <input name="name" placeholder="What's the name?">
+      </div>
+      <div class="col s12">
+        <button class="btn" type='submit'>submit</button>
+      </div>
+    </form>
+  </div>
 
 
 </body>

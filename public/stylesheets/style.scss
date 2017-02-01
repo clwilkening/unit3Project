@@ -1,0 +1,14 @@
+$primaryBgc: rgba(200,200,200,.5);
+$primaryFont: "Courier New", Courier, monospace;
+
+.body{
+  background-image: url('/moviebg.jpg')
+}
+
+body {
+  background-color: $primaryBgc;
+}
+
+h1 {
+  font-family: $primaryFont;
+}
