@@ -6,6 +6,7 @@ function comparePass(userPassword, databasePassword) {
   return bcrypt.compareSync(userPassword, databasePassword);
 }
 
+
 function createUser(req, res) {
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
@@ -27,6 +28,7 @@ function loginRedirect(req, res, next) { //if user is already logged inn - funct
 
   return next(); //calling next function after invokation
 }
+
 
 
 function loginRequired(req, res, next) {
