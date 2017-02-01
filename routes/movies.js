@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   models.Movie.findAll({}).then(function(movies) {
   res.render('movies/index', {
     title: 'Movies',
-    movies: movies
+    movies: movies,
     });
   });
 });
@@ -49,6 +49,25 @@ router.post('/', function(req, res, next) {
   models.Movie.create({
     title: req.body.title,
     synopsis: req.body.synopsis
+  }).then(function() {
+    res.redirect('/movies');
+  });
+});
+
+router.post('/:id/favorite', authHelpers.loginRequired, function(req,res, next) {
+  models.Favorite.create({
+    user: req.user.datavalues.id,
+    movie: req.body.id
+  }).then(function() {
+    res.redirect('/movies');
+  })
+})
+
+router.put('/:id', function(req, res, next) {
+  models.Movie.update({
+    title: req.body.title,
+    synopsis: req.body.synopsis,
+    favorites: req.body.favorites + 1
   }).then(function() {
     res.redirect('/movies');
   });

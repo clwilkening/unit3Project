@@ -7,6 +7,9 @@
   <body>
     <h1><%= movie.title %></h1>
     <p><%= movie.synopsis %></p>
+    <form action="<%= '/movies/' + movie.id/favorite + '?_method=PUT' %>" method='POST'>
+      <button type='submit'>Favorite</button>
+    </form>
     <a href='<%= `/movies/${movie.id}/edit` %> '><button>Edit</button></a>
     <form action='<%= `/movies/${movie.id}?_method=DELETE` %>' method='POST'>
         <button type="submit">Delete</button>
