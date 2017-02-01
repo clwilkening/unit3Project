@@ -1,2 +1,7 @@
+.body {
+  background-image: url("/moviebg.jpg"); }
+
+body {
+  background-color: rgba(200, 220, 220, 0.5); }
 
 /*# sourceMappingURL=style.css.map */
