@@ -13,6 +13,7 @@ const LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcryptjs');
 var index = require('./routes/index');
 var users = require('./routes/user');
+
 var directors = require('./routes/directors');
 var methodOverride = require('method-override');
 const session = require('express-session');
@@ -55,11 +56,11 @@ app.use('/users', users);
 
 //use movies route - cw
 app.use('/movies', movies);
-
 app.use('/directors', directors);
 
 app.use('/auth', authRoutes);
 app.use('/user', userRoutes);
+
 
 
 

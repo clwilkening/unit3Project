@@ -36,6 +36,16 @@ router.get('/:id/edit', function(req, res, next) {
   });
 });
 
+router.post('/:id/favorites', function(req,res, next) {
+  models.Favorites.create({
+    user: req.user.id,
+    movie: req.params.id
+  }).then(function() {
+    res.redirect('/movies');
+  })
+})
+
+
 router.put('/:id', function(req, res, next) {
   models.Movie.update({
     title: req.body.title,
@@ -54,20 +64,12 @@ router.post('/', function(req, res, next) {
   });
 });
 
-router.post('/:id/favorite', authHelpers.loginRequired, function(req,res, next) {
-  models.Favorite.create({
-    user: req.user.datavalues.id,
-    movie: req.body.id
-  }).then(function() {
-    res.redirect('/movies');
-  })
-})
+
 
 router.put('/:id', function(req, res, next) {
   models.Movie.update({
     title: req.body.title,
     synopsis: req.body.synopsis,
-    favorites: req.body.favorites + 1
   }).then(function() {
     res.redirect('/movies');
   });
